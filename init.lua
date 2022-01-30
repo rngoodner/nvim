@@ -22,6 +22,8 @@ end)
 local servers = { 'ccls', 'gopls'} -- add to this list also for extra completion support
 
 -- c++ lsp
+-- sudo apt install ccls #newer ubuntu
+-- sudo snap install ccls #ubuntu 18.04
 local lspconfig = require'lspconfig'
 lspconfig.ccls.setup {
   init_options = {
@@ -30,6 +32,7 @@ lspconfig.ccls.setup {
 }
 
 -- go lsp
+-- go get golang.org/x/tools/gopls@latest
 require'lspconfig'.gopls.setup{}
 
 -- Mappings.
