@@ -35,6 +35,10 @@ lspconfig.ccls.setup {
 -- go get golang.org/x/tools/gopls@latest
 require'lspconfig'.gopls.setup{}
 
+-- python lsp
+-- pip install python-lsp-server
+require'lspconfig'.pylsp.setup{}
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
