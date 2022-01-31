@@ -20,6 +20,7 @@ require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'tpope/vim-sleuth' -- indent style detection
+  use "ray-x/lsp_signature.nvim" -- Function signature while typing
 end)
 
 -- add new lsp's here w/ configs from: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
@@ -147,3 +148,7 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- function signature config
+cfg = {}
+require "lsp_signature".setup(cfg)
