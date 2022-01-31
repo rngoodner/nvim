@@ -41,6 +41,7 @@ require'lspconfig'.gopls.setup{}
 
 -- python lsp
 -- pip install python-lsp-server
+-- echo 'export PATH=~/.local/bin/:$PATH' >> ~/.bashrc
 require'lspconfig'.pylsp.setup{}
 
 -- Mappings.
