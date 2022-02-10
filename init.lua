@@ -10,11 +10,6 @@
 -- To add new language servers check:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
-vim.g.mapleader = ' '
-vim.cmd 'set background=dark'
-vim.cmd 'set termguicolors'
-vim.cmd 'colorscheme gruvbox'
-
 -- Packer packages
 local use = require('packer').use
 require('packer').startup(function()
@@ -29,6 +24,21 @@ require('packer').startup(function()
   use "bronson/vim-trailing-whitespace" -- Trailing white space, fix w/ :FixWhitespace
   use "morhetz/gruvbox" -- Theme
 end)
+
+-- recompile if this file changes
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost init.lua source <afile> | PackerCompile
+  augroup end
+]])
+
+-- basic settings
+vim.cmd 'PackerInstall'
+vim.cmd 'set background=dark'
+vim.cmd 'set termguicolors'
+vim.cmd 'colorscheme gruvbox'
+vim.g.mapleader = ' '
 
 -- add new lsp's to this list in order to activate
 local servers = {'ccls', 'gopls', 'pylsp'}
