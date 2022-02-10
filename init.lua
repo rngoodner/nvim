@@ -78,17 +78,15 @@ for _, lsp in pairs(servers) do
 end
 
 -- overwrite default c++ setup with more options
--- sudo apt install ccls #newer ubuntu
--- sudo snap install ccls #ubuntu 18.04
---local lspconfig = require'lspconfig'
---lspconfig.ccls.setup {
---  on_attach = on_attach,
---  debounce_text_changes = 150,
---  capabilities = capabilities,
---  init_options = {
---    compilationDatabaseDirectory = "build";
---  }
---}
+local lspconfig = require'lspconfig'
+lspconfig.ccls.setup {
+  on_attach = on_attach,
+  debounce_text_changes = 150,
+  capabilities = capabilities,
+  init_options = {
+    compilationDatabaseDirectory = "build";
+  }
+}
 
 local lspconfig = require('lspconfig')
 
