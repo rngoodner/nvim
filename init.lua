@@ -10,6 +10,8 @@
 -- To add new language servers check:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
+vim.g.mapleader = " "
+
 -- Packer packages
 local use = require('packer').use
 require('packer').startup(function()
@@ -23,27 +25,9 @@ require('packer').startup(function()
   use "ray-x/lsp_signature.nvim" -- Function signature while typing
 end)
 
--- add new lsp's here w/ configs from: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'ccls', 'gopls'} -- add to this list also for extra completion support
+-- add new lsp's to this list in order to activate 
+local servers = {'ccls', 'gopls', 'pylsp'}
 
--- c++ lsp
--- sudo apt install ccls #newer ubuntu
--- sudo snap install ccls #ubuntu 18.04
-local lspconfig = require'lspconfig'
-lspconfig.ccls.setup {
-  init_options = {
-    compilationDatabaseDirectory = "build";
-  }
-}
-
--- go lsp
--- go get golang.org/x/tools/gopls@latest
-require'lspconfig'.gopls.setup{}
-
--- python lsp
--- pip install python-lsp-server
--- echo 'export PATH=~/.local/bin/:$PATH' >> ~/.bashrc
-require'lspconfig'.pylsp.setup{}
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -76,6 +60,10 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 for _, lsp in pairs(servers) do
@@ -84,23 +72,25 @@ for _, lsp in pairs(servers) do
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
+      capabilities = capabilities,
     }
   }
 end
 
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- overwrite default c++ setup with more options
+-- sudo apt install ccls #newer ubuntu
+-- sudo snap install ccls #ubuntu 18.04
+--local lspconfig = require'lspconfig'
+--lspconfig.ccls.setup {
+--  on_attach = on_attach,
+--  debounce_text_changes = 150,
+--  capabilities = capabilities,
+--  init_options = {
+--    compilationDatabaseDirectory = "build";
+--  }
+--}
 
 local lspconfig = require('lspconfig')
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
-end
 
 -- luasnip setup
 local luasnip = require 'luasnip'
