@@ -7,8 +7,10 @@
 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 -- Then do :PackerCompile and :PackerInstall from nvim
 
--- To add new language servers check:
+-- Add new lsp's to this list in order to activate
+-- If setup is needed, see this link and then add after setup loop below:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+local servers = {'ccls', 'gopls', 'pylsp'}
 
 -- Packer packages
 local use = require('packer').use
@@ -39,10 +41,6 @@ vim.cmd 'set background=dark'
 vim.cmd 'set termguicolors'
 vim.cmd 'colorscheme gruvbox'
 vim.g.mapleader = ' '
-
--- add new lsp's to this list in order to activate
-local servers = {'ccls', 'gopls', 'pylsp'}
-
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
