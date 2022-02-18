@@ -1,11 +1,17 @@
 -- ~/.config/nvim/init.lua
 
 -- requires nvim 0.6.1+
--- sudo add-apt-repository ppa:neovim-ppa/stable
+-- https://github.com/neovim/neovim/releases/
+
+-- Install LSPs
+-- sudo apt install ccls
+-- go get golang.org/x/tools/gopls@latest
+-- pip install python-language-server
 
 -- Install packer with:
 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
--- Then do :PackerCompile and :PackerInstall from nvim
+-- Everything should install automaticall on first run
+-- If not, try :PackerCompile and :PackerInstall
 
 -- Add new lsp's to this list in order to activate
 -- If setup is needed, see this link and then add after setup loop below:
