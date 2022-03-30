@@ -31,6 +31,7 @@ require('packer').startup(function()
   use "ray-x/lsp_signature.nvim" -- Function signature while typing
   use "bronson/vim-trailing-whitespace" -- Trailing white space, fix w/ :FixWhitespace
   use "morhetz/gruvbox" -- Theme
+  use "mattn/vim-goimports" -- Go code formatting and imports management
 end)
 
 -- recompile if this file changes
@@ -159,3 +160,6 @@ cmp.setup {
 -- function signature config
 cfg = {}
 require "lsp_signature".setup(cfg)
+
+-- go imports on save
+vim.cmd 'let g:goimports = 1'
