@@ -32,6 +32,7 @@ require('packer').startup(function()
   use "bronson/vim-trailing-whitespace" -- Trailing white space, fix w/ :FixWhitespace
   use "morhetz/gruvbox" -- Theme
   use "mattn/vim-goimports" -- Go code formatting and imports management
+  use "preservim/nerdcommenter" -- Comments with <leader>cc, <leader>cu, <leader>c<space>
 end)
 
 -- recompile if this file changes
