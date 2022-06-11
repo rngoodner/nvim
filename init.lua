@@ -1,6 +1,6 @@
 -- ~/.config/nvim/init.lua
 
--- requires nvim 0.6.1+
+-- requires nvim >= 0.7.0
 -- https://github.com/neovim/neovim/releases/
 
 -- Install LSPs
@@ -33,6 +33,13 @@ require('packer').startup(function()
   use "morhetz/gruvbox" -- Theme
   use "mattn/vim-goimports" -- Go code formatting and imports management
   use "preservim/nerdcommenter" -- Comments with <leader>cc, <leader>cu, <leader>c<space>
+  use "kyazdani42/nvim-tree.lua"
+  --use {
+    --'',
+    --requires = {
+      --'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    --}
+  --}
 end)
 
 -- recompile if this file changes
@@ -164,3 +171,49 @@ require "lsp_signature".setup(cfg)
 
 -- go imports on save
 vim.cmd 'let g:goimports = 1'
+
+-- nvim tree
+-- these settings get rid of the need for any special fonts
+require'nvim-tree'.setup {
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        item = "│ ",
+        none = "  ",
+      }
+    },
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+      padding = " ",
+      symlink_arrow = " ➛ ",
+      show = {
+        file = false,
+        folder = false,
+        folder_arrow = false,
+        git = false,
+      }
+    }
+  }
+}
+vim.cmd([[
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+" More available functions:
+" NvimTreeOpen
+" NvimTreeClose
+" NvimTreeFocus
+" NvimTreeFindFileToggle
+" NvimTreeResize
+" NvimTreeCollapse
+" NvimTreeCollapseKeepBuffers
+
+set termguicolors " this variable must be enabled for colors to be applied properly
+
+" a list of groups can be found at `:help nvim_tree_highlight`
+highlight NvimTreeFolderIcon guibg=blue
+]])
