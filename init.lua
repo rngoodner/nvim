@@ -5,7 +5,7 @@
 
 -- Install LSPs
 -- sudo apt install ccls
--- go get golang.org/x/tools/gopls@latest
+-- go install golang.org/x/tools/gopls@latest
 -- pip install python-language-server
 
 -- Install packer with:
