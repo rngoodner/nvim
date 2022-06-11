@@ -33,13 +33,7 @@ require('packer').startup(function()
   use "morhetz/gruvbox" -- Theme
   use "mattn/vim-goimports" -- Go code formatting and imports management
   use "preservim/nerdcommenter" -- Comments with <leader>cc, <leader>cu, <leader>c<space>
-  use "kyazdani42/nvim-tree.lua"
-  --use {
-    --'',
-    --requires = {
-      --'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    --}
-  --}
+  use "kyazdani42/nvim-tree.lua" -- file tree, toggle w/ C-n, manip w/ a,d,c,p,x,R
 end)
 
 -- recompile if this file changes
