@@ -3,9 +3,10 @@
 -- requires nvim >= 0.7.0
 -- https://github.com/neovim/neovim/releases/
 
--- Install LSPs
+-- Install LSPs (and other deps)
 -- sudo apt install ccls
 -- go install golang.org/x/tools/gopls@latest
+-- go install golang.org/x/tools/cmd/goimports@latest
 -- pip install python-language-server
 
 -- Install packer with:
