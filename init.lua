@@ -4,7 +4,7 @@
 -- https://github.com/neovim/neovim/releases/
 
 -- Install LSPs (and other deps)
--- sudo apt install ccls
+-- dnf install clang-tools-extra
 -- go install golang.org/x/tools/gopls@latest
 -- go install golang.org/x/tools/cmd/goimports@latest
 -- pip install python-language-server
@@ -17,7 +17,7 @@
 -- Add new lsp's to this list in order to activate
 -- If setup is needed, see this link and then add after setup loop below:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = {'ccls', 'gopls', 'pylsp'}
+local servers = {'clangd', 'gopls', 'pylsp'}
 
 -- Packer packages
 local use = require('packer').use
@@ -87,7 +87,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- Use a loop to conveniently call 'setup' on multiple servers and
+-- Use a loop to conveniently call 'setup' on multiple LSP servers and
 -- map buffer local keybindings when the language server attaches
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
@@ -99,19 +99,6 @@ for _, lsp in pairs(servers) do
     }
   }
 end
-
--- overwrite default c++ setup with more options
-local lspconfig = require'lspconfig'
-lspconfig.ccls.setup {
-  on_attach = on_attach,
-  debounce_text_changes = 150,
-  capabilities = capabilities,
-  init_options = {
-    compilationDatabaseDirectory = "build";
-  }
-}
-
-local lspconfig = require('lspconfig')
 
 -- luasnip setup
 local luasnip = require 'luasnip'
