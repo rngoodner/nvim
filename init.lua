@@ -4,7 +4,7 @@
 -- https://github.com/neovim/neovim/releases/
 
 -- Install LSPs (and other deps)
--- sudo dnf install clang-tools-extra
+-- sudo dnf install clang-tools-extra bear
 -- go install golang.org/x/tools/gopls@latest
 -- go install golang.org/x/tools/cmd/goimports@latest
 -- pip install python-language-server
