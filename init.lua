@@ -204,3 +204,7 @@ highlight NvimTreeFolderIcon guibg=blue
 -- activate with `:set spell`
 -- deactivate with `:set nospell`
 vim.cmd 'set spelllang=en_us'
+
+-- tab char is 4 spaces wide
+vim.cmd 'set tabstop=4'
+vim.cmd 'set shiftwidth=4'
