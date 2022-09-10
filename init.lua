@@ -211,3 +211,6 @@ vim.cmd 'set shiftwidth=4'
 
 -- line numbers
 vim.cmd 'set number'
+
+-- highlight current line
+vim.cmd 'set cursorline'
