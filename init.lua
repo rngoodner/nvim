@@ -215,16 +215,13 @@ vim.cmd 'set spelllang=en_us'
 vim.cmd 'set number'
 
 -- highlight current line
---vim.cmd 'set cursorline'
+vim.cmd 'set cursorline'
 
 -- indent blankline config
-vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
 require("indent_blankline").setup {
-  -- for example, context is off by default, use this to turn it on
+  char="",
   show_current_context = true,
   show_current_context_start = true,
-  space_char_blankline = " ",
 }
 
 -- treesitter config
