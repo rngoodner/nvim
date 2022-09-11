@@ -22,21 +22,21 @@ local servers = {'clangd', 'gopls', 'pylsp'}
 -- Packer packages
 local use = require('packer').use
 require('packer').startup(function()
-  use 'wbthomason/packer.nvim' -- Package manager
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use 'tpope/vim-sleuth' -- indent style detection
-  use "ray-x/lsp_signature.nvim" -- Function signature while typing
-  use "bronson/vim-trailing-whitespace" -- Trailing white space, fix w/ :FixWhitespace
-  use "morhetz/gruvbox" -- Theme
-  use "mattn/vim-goimports" -- Go code formatting and imports management
-  use "preservim/nerdcommenter" -- Comments with <leader>cc, <leader>cu, <leader>c<space>
-  use "kyazdani42/nvim-tree.lua" -- file tree, toggle w/ C-n, manip w/ a,d,c,p,x,R
+  use 'wbthomason/packer.nvim'              -- Package manager
+  use "sainnhe/everforest"                  -- Theme
+  use 'neovim/nvim-lspconfig'               -- Collection of configurations for the built-in LSP client
+  use 'hrsh7th/nvim-cmp'                    -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp'                -- LSP source for nvim-cmp
+  use 'saadparwaiz1/cmp_luasnip'            -- Snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip'                    -- Snippets plugin
+  use 'tpope/vim-sleuth'                    -- indent style detection
+  use "ray-x/lsp_signature.nvim"            -- Function signature while typing
+  use "bronson/vim-trailing-whitespace"     -- Trailing white space, fix w/ :FixWhitespace
+  use "mattn/vim-goimports"                 -- Go code formatting and imports management
+  use "preservim/nerdcommenter"             -- Comments with <leader>cc, <leader>cu, <leader>c<space>
+  use "kyazdani42/nvim-tree.lua"            -- file tree, toggle w/ C-n, manip w/ a,d,c,p,x,R
   use "lukas-reineke/indent-blankline.nvim" -- indentation guide
-  use "nvim-treesitter/nvim-treesitter" -- indent-blankline dependency
+  use "nvim-treesitter/nvim-treesitter"     -- indent-blankline dependency
 end)
 
 -- recompile if this file changes
@@ -51,7 +51,7 @@ augroup end
 vim.cmd 'PackerInstall'
 vim.cmd 'set background=dark'
 vim.cmd 'set termguicolors'
-vim.cmd 'colorscheme gruvbox'
+vim.cmd 'colorscheme everforest'
 vim.g.mapleader = ' '
 
 -- Mappings.
