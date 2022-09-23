@@ -213,5 +213,5 @@ vim.cmd 'set spelllang=en_us'
 vim.cmd 'set number'
 
 -- highlight current line
-vim.cmd 'set cursorline'
+--vim.cmd 'set cursorline'
 
