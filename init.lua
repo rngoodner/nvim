@@ -23,7 +23,7 @@ local servers = {'clangd', 'gopls', 'pylsp'}
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'              -- Package manager
-  use "sainnhe/gruvbox-material"            -- Theme
+  use "EdenEast/nightfox.nvim"              -- Theme
   use 'neovim/nvim-lspconfig'               -- Collection of configurations for the built-in LSP client
   use 'hrsh7th/nvim-cmp'                    -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'                -- LSP source for nvim-cmp
@@ -49,7 +49,7 @@ augroup end
 vim.cmd 'PackerInstall'
 vim.cmd 'set background=dark'
 vim.cmd 'set termguicolors'
-vim.cmd 'colorscheme gruvbox-material'
+vim.cmd 'colorscheme nightfox' -- nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
 vim.g.mapleader = ' '
 
 -- Mappings.
