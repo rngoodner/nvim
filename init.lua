@@ -212,6 +212,9 @@ vim.cmd 'set spelllang=en_us'
 -- line numbers
 vim.cmd 'set number'
 
--- highlight current line
---vim.cmd 'set cursorline'
+-- highlight current line number
+vim.cmd 'set cursorline'
+vim.cmd 'set cursorlineopt=number'
 
+-- enable mouse support
+vim.cmd 'set mouse=a'
