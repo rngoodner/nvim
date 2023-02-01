@@ -218,3 +218,6 @@ vim.cmd 'set cursorlineopt=number'
 
 -- enable mouse support
 vim.cmd 'set mouse=a'
+
+-- system clipboard
+vim.api.nvim_set_option("clipboard","unnamed")
