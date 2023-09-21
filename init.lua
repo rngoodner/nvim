@@ -4,19 +4,22 @@
 -- https://github.com/neovim/neovim/releases/
 
 -- Install LSPs (and other deps)
--- sudo dnf install clang-tools-extra bear
+-- ubuntu: sudo apt install clang-tools bear
+-- rhel: sudo dnf install clang-tools-extra bear
+-- macos: brew install llvm bear
 -- go install golang.org/x/tools/gopls@latest
 -- go install golang.org/x/tools/cmd/goimports@latest
 -- pip install python-language-server
 
 -- Install packer with:
 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
--- Everything should install automaticall on first run
+-- Everything should install automatically on first run
 -- If not, try :PackerCompile and :PackerInstall
 
 -- Add new lsp's to this list in order to activate
 -- If setup is needed, see this link and then add after setup loop below:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- note: to stop lsp run :LspStop
 local servers = {'clangd', 'gopls', 'pylsp'}
 
 -- Packer packages
@@ -33,7 +36,7 @@ require('packer').startup(function()
   use "ray-x/lsp_signature.nvim"            -- Function signature while typing
   use "bronson/vim-trailing-whitespace"     -- Trailing white space, fix w/ :FixWhitespace
   use "mattn/vim-goimports"                 -- Go code formatting and imports management
-  use "preservim/nerdcommenter"             -- Comments with <leader>cc, <leader>cu, <leader>c<space>
+  use "preservim/nerdcommenter"             -- Comments with <leader>cc, <leader>cu, <leader>c<space> <leader>cl
   use "kyazdani42/nvim-tree.lua"            -- file tree, toggle w/ C-n, manip w/ a,d,c,p,x,R
 end)
 
