@@ -9,7 +9,7 @@
 -- macos: brew install llvm bear
 -- go install golang.org/x/tools/gopls@latest
 -- go install golang.org/x/tools/cmd/goimports@latest
--- pip install python-language-server
+-- pip3 install 'python-language-server[all]' # maybe after installing miniconda
 
 -- Install packer with:
 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
