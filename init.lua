@@ -208,10 +208,6 @@ highlight NvimTreeFolderIcon guibg=blue
 -- deactivate with `:set nospell`
 vim.cmd 'set spelllang=en_us'
 
--- tab char is 4 spaces wide
---vim.cmd 'set tabstop=4'
---vim.cmd 'set shiftwidth=4'
-
 -- line numbers
 vim.cmd 'set number'
 
@@ -224,3 +220,8 @@ vim.cmd 'set mouse=a'
 
 -- system clipboard
 vim.api.nvim_set_option("clipboard","unnamed")
+
+-- basic tabs and spacing
+vim.cmd 'set tabstop=4'
+vim.cmd 'set shiftwidth=4'
+vim.cmd 'set autoindent'
