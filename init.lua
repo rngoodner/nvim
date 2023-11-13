@@ -226,3 +226,15 @@ vim.cmd 'set tabstop=4'
 vim.cmd 'set shiftwidth=4'
 vim.cmd 'set expandtab'
 vim.cmd 'set autoindent'
+
+-- reselect visual block after indent
+vim.cmd 'vnoremap < <gv'
+vim.cmd 'vnoremap > >gv'
+
+-- MOVE LINE/BLOCK
+vim.cmd 'nnoremap <C-S-Down> :m+<CR>=='
+vim.cmd 'nnoremap <C-S-Up> :m-2<CR>=='
+vim.cmd 'inoremap <C-S-Down> <Esc>:m+<CR>==gi'
+vim.cmd 'inoremap <C-S-Up> <Esc>:m-2<CR>==gi'
+vim.cmd 'vnoremap <C-S-Down> :m\'>+<CR>gv=gv'
+vim.cmd 'vnoremap <C-S-Up> :m-2<CR>gv=gv'
